@@ -36,7 +36,7 @@ async function onSubmit(e) {
   searchQueryResult = e.currentTarget.elements.searchQuery.value
     .toLowerCase()
     .trim();
-  e.target.reset();
+ 
   console.log('searchQueryResult:', `${searchQueryResult}`);
 
   if (searchQueryResult === '') {
@@ -95,7 +95,7 @@ async function onBtnClick() {
   pixabayAPI.page = `${pageN}`;
   try {
     const results = await fetchPhotos(searchQueryResult);
-    markupData.htmlCode = await renderedPhotos(results);
+    markupData.htmlCode =  renderedPhotos(results);
     gallerySelector.insertAdjacentHTML('beforeend', markupData.htmlCode);
     gallery.refresh();
 

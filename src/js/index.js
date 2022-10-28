@@ -13,7 +13,7 @@ let gallery = new SimpleLightbox('.gallery a', {
 
 const pixabayAPI = {
   baseUrl: 'https://pixabay.com/api/',
-  key: '30693264-9f2d2acf319fb28e9e78d56a0',
+  key: '30934682-15dfa6078738846bac4f059d2',
   image_type: 'photo',
   orientation: 'horizontal',
   safesearch: 'true',
@@ -39,24 +39,14 @@ async function onSubmit(e) {
  
   console.log('searchQueryResult:', `${searchQueryResult}`);
 
-  if (searchQueryResult === '') {
-    cleanContainer();
-    return Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
-  }
+
 
   if (searchQueryResult !== q) {
     pageN = 1;
     pixabayAPI.page = `${pageN}`;
     cleanContainer();
-  } else {
-    pageN += 1;
-    pixabayAPI.page = `${pageN}`;
-    Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
-  }
+  } 
+  
   q = searchQueryResult;
   console.log('q:', `${q}`);
 
@@ -80,7 +70,7 @@ async function onSubmit(e) {
       btnLoadMore.classList.remove('is-hidden');
     }
     decoration.style.display = 'none';
-    Notify.success(`'Hooray! We found ${results.totalHits} images.'`);
+    
   } catch (error) {
     Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'

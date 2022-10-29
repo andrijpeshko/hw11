@@ -69,7 +69,7 @@ async function onSubmit(e) {
     if (page < totalPages) {
       btnLoadMore.classList.remove('is-hidden');
     }
-    decoration.style.display = 'none';
+    
     
   } catch (error) {
     Notify.failure(

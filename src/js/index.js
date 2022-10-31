@@ -138,7 +138,7 @@ async function fetchPhotos(searchQueryResult) {
   return results;
 }
 
-async function renderedPhotos(results) {
+ function renderedPhotos(results) {
   const { hits } = results;
 
   markupData.markup = hits
